@@ -17,7 +17,58 @@
         android:id="@+id/toolbar"
         android:background="@color/blue_700"
         />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:id="@+id/layout_permission"
+    >
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal" >
+         <ImageView
+             android:layout_width="50dp"
+             android:layout_height="50dp"
+             android:layout_margin="5dp"
+             android:padding="5dp"
+             android:src="@drawable/ic_baseline_sentiment_satisfied_24"
+             />
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:layout_margin="5dp"
+             android:padding="5dp"
+             android:orientation="vertical">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:textSize="20sp"
+                 android:text="Set Permission"
+                 android:textColor="@color/black"/>
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:textSize="15dp"
+                 android:text="Give Access" />
 
+
+
+         </LinearLayout>
+
+
+     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:background="@drawable/click_button"
+        android:text="Enable"
+        android:drawableRight="@drawable/ic_baseline_touch_app_24"
+        android:onClick="set_permission"/>
+
+</LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleView"
         android:layout_width="match_parent"

@@ -10,11 +10,17 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.transition.Visibility;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.example.appease.adapter.MyAdapter;
 import com.example.appease.model.MyItem;
+import com.example.appease.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +28,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
+    LinearLayout layout_permisson;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         MyAdapter adapter = new MyAdapter(this, getApplications());
         recyclerView.setAdapter(adapter);
+        layout_permisson = findViewById(R.id.layout_permission);
     }
 
     private List<MyItem> getApplications() {
@@ -70,5 +79,21 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
         return true;
+    }
+
+    public void set_permission(View view) {
+        startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
+    }
+
+    @Override
+    protected void onResume() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            if(Utils.PermissionCheck(this)){
+                layout_permisson.setVisibility(View.GONE);
+            } else {
+                layout_permisson.setVisibility(View.VISIBLE);
+            }
+        }
+        super.onResume();
     }
 }
