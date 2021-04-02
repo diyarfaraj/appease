@@ -17,7 +17,7 @@ public class MyItem {
         return icon;
     }
 
-    public void setIcon(Drawable icon) {
+   public void setIcon(Drawable icon) {
         this.icon = icon;
     }
 

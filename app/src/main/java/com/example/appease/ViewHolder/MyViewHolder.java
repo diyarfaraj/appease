@@ -1,5 +1,6 @@
 package com.example.appease.ViewHolder;
 
+import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
